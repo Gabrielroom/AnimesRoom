@@ -1,0 +1,651 @@
+/*  Main.html  */
+
+/* Container da busca */
+.search {
+    position: relative; /* Isso permite que o ícone seja posicionado em relação a esta caixa */
+    display: flex;
+    align-items: center;
+}
+
+/* O ícone da lupa */
+.search i {
+    position: absolute; /* Tira o ícone do fluxo e permite que ele fique "em cima" do input */
+    left: 12px;         /* Distância da borda esquerda */
+    color: #666;        /* Cor cinza para combinar com o layout escuro */
+    font-size: 14px;
+    pointer-events: none; /* Garante que se clicar na lupa, o clique "atravesse" para o input */
+}
+
+/* O campo de texto */
+.search input {
+    background-color: #1e1e1e; /* Cor escura que você está usando */
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: white;
+    padding: 10px 10px 10px 35px; /* O segredo: 35px de espaço na esquerda para a lupa */
+    width: 250px;
+    outline: none;
+}
+
+/* Efeito opcional ao clicar */
+.search input:focus {
+    border-color: #ff4500; /* Cor de destaque (ex: laranja) ao clicar */
+}
+
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#111;
+}
+
+.header{
+  background:#0a0a0a;
+  padding:20px 0;
+}
+
+.container{
+  width:90%;
+  margin:auto;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+
+
+.logo{
+  display:flex;
+  align-items:center;
+  font-size:22px;
+  font-weight:bold;
+}
+
+.logo-icon{
+  color:#ff6a00;
+  margin-right:5px;
+}
+
+.logo-text{
+  color:#ff6a00;
+}
+
+.menu{
+  display:flex;
+  gap:25px;
+}
+
+.menu a{
+  text-decoration:none;
+  color:#ddd;
+  font-size:15px;
+}
+
+.menu a:hover{
+  color:#ff6a00;
+}
+
+.actions{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.search input{
+  padding:14px 40px;
+  border-radius:4px;
+  border:none;
+  background:#222;
+  color:white;
+}
+
+
+.user i {
+    margin-left: 8px;
+    color: #ff4500;
+    font-size: 20px;
+    width: 50px;  /* Ajuste a largura como desejar */
+    border-radius: 50%; /* Opcional: deixa o ícone redondo */
+}
+
+
+
+.episodes {
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+
+.episodes-grid-sinopse{
+  padding-left: 80px; margin-right: 80px;
+  padding-top: 20px;
+  color:white;
+  width: 80%;
+  height: 10%;
+}
+
+.section-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.episode-card-title-anime {
+    color: white !important;
+    font-size: 20px !important;
+}
+
+
+.episodes-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+}
+
+.episodes-grid-temporada{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+}
+
+.episode-card{
+    background:#111;
+    border-radius:4px;
+    overflow:hidden;
+    padding-bottom:30px;
+    text-align:left;
+}
+
+.episode-card img{
+    width:120%;
+    display:block;
+}
+
+
+.episode-card p{
+    padding: 4px;
+    margin:0px;
+    font-weight: normal;
+    color: #FFFFFF80;
+    font-size: 14px;
+}
+
+nav a {
+    text-decoration: none; 
+    color: #ff6a00;
+    font-weight: bold;
+    margin-left: 32px;
+}
+
+.logo img{
+    width: 300px;
+    height: auto;
+}
+
+
+
+
+.see-all {
+    background-color: #ff4500; /* A cor laranja que você já usa */
+    color: white;
+    padding: 10px 25px;
+    border: none;              /* Remove a borda branca antiga */
+    border-radius: 50px;       /* Mantém o formato arredondado, mas elegante */
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Faz as mudanças serem suaves */
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3); /* Sombra suave da cor do botão */
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Efeito ao passar o mouse (Hover) */
+.see-all:hover {
+    background-color: #ff5722;
+    transform: translateY(-3px); /* Ele sobe um pouquinho */
+    box-shadow: 0 6px 20px rgba(255, 69, 0, 0.5); /* O brilho aumenta */
+}
+
+/* Efeito ao clicar */
+.see-all:active {
+    transform: translateY(-1px);
+}
+
+
+.section-header h2 {
+    color: #fff;
+    font-size: 28px; /* Aumentei um pouco para destaque */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px; /* Espaço maior para o texto não "colar" na barra */
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.section-header h2::after {
+    content: "";
+    position: absolute;
+    bottom: -12px; /* Afastei um pouco mais do texto */
+    width: 240px;   /* Largura fixa em pixels costuma funcionar melhor aqui */
+    height: 4px;
+    background-color: #ff4500;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(255, 69, 0, 0.6); /* Um leve brilho para combinar com o tema */
+}
+
+.section-sobre h2 {
+    color: #fff;
+    font-size: 28px; /* Aumentei um pouco para destaque */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px; /* Espaço maior para o texto não "colar" na barra */
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.section-sobre h2::after {
+    content: "";
+    position: absolute;
+    bottom: -12px; /* Afastei um pouco mais do texto */
+    width: 60px;   /* Largura fixa em pixels costuma funcionar melhor aqui */
+    height: 4px;
+    background-color: #ff4500;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(255, 69, 0, 0.6); /* Um leve brilho para combinar com o tema */
+}
+
+
+
+/* Footer */ 
+
+.footer {
+    width: 100%;
+    background-color: #000; /* Fundo preto como na imagem */
+    padding: 20px 0;        /* Espaço interno para não ficar colado */
+}
+
+.section-footer {
+    display: flex;   
+    justify-content: space-between;
+    align-items: center;    /* Centraliza verticalmente (Eixo Cruzado) */
+    flex-direction: column;
+    gap: 20px;              /* Espaço entre os links e o texto */
+    padding: 40px;
+}
+
+
+.section-footer a {
+    color: #ff4500;          /* O laranja dos seus links */
+    text-decoration: none;   /* Remove o sublinhado */
+    font-weight: bold;
+    font-family: sans-serif;
+}
+  
+
+.footer-info p {
+    color: #888;            /* Um cinza discreto */
+    text-align: center;
+    max-width: 600px;       /* Limita a largura para o texto não ficar gigante */
+}
+
+/* Centraliza os dois blocos (Texto e Nav) e dá espaço entre eles */
+.section-footer {
+    display: flex;
+    flex-direction: column; /* Um em cima do outro */
+    align-items: center;    /* Centraliza horizontalmente */
+    gap: 0px;              /* Espaço VERTICAL entre o texto e os links */
+    padding: 0px 0;
+}
+
+.footer-nav ul {
+    display: flex;          /* Coloca os links na horizontal */
+    list-style: none;       /* Tira as bolinhas da lista */
+    padding: 0;
+    gap: 24px;              /* Espaço HORIZONTAL entre cada link */
+}
+
+.footer-nav a {
+    color: #ff4500;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
+
+
+
+/* Sobre.html */
+
+.section-sobre {
+    display: flex;
+    flex-direction: column; /* Coloca um embaixo do outro */
+    padding-left: 6%;      /* Use porcentagem para ser melhor em telas diferentes */
+    padding-right: 120px;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+.sobre-mural {
+    display: flex;
+    flex-direction: column; /* Coloca um embaixo do outro */
+    padding-left: 10%;      /* Use porcentagem para ser melhor em telas diferentes */
+    gap: 01px;              /* Espaço entre um H2 e outro */
+    justify-content: center;
+    padding-right: 10%;
+    text-align: center;
+}
+
+.section-sobre h2 {
+    color: #fff;
+    font-size: 28px; /* Aumentei um pouco para destaque */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px; /* Espaço maior para o texto não "colar" na barra */
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.section-sobre h2::after {
+    content: "";
+    position: absolute;
+    bottom: -12px; /* Afastei um pouco mais do texto */
+    width: 60px;   /* Largura fixa em pixels costuma funcionar melhor aqui */
+    height: 4px;
+    background-color: #ff4500;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(255, 69, 0, 0.6); /* Um leve brilho para combinar com o tema */
+}
+
+
+.sobre-mural h4 {
+    color: #ddd;            /* Branco acinzentado cansa menos a vista */
+    font-weight: 400;       /* Texto longo fica melhor se não for negrito */
+    line-height: 1.8;       /* Aumenta o espaço entre as linhas */
+    max-width: 920px;       /* Evita que o texto fique largo demais */
+    margin: 0 auto 50px;    /* Centraliza o bloco e dá espaço entre as seções */
+    font-size: 1.1rem;
+    text-align: center;
+    word-spacing: 1px;      /* Pequeno espaço entre as palavras */
+}
+
+
+.sobre-description{
+    justify-content: center;
+    color: #ff4500;
+}
+
+
+
+
+
+/*  anime-ep.html  */
+
+
+/* Efeito ao clicar */
+.pre-video:active {
+    transform: translateY(-1px);
+}
+
+.pre-video {
+    padding-left: 80px;
+    text-decoration: none; 
+    color: #ff6a00;
+    font-weight: bold;
+    margin-left: 32px;
+    padding: 10px 160px;
+    border: none;              /* Remove a borda branca antiga */
+    border-radius: 50px;       /* Mantém o formato arredondado, mas elegante */
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Faz as mudanças serem suaves */
+    font-size: 14px;
+}
+
+.video-container {
+    margin: 30px auto;
+    width: 100%;
+    background: #000; /* Fundo preto enquanto carrega */
+    border-radius: 8px;
+    overflow: hidden;
+
+}
+
+.video-container iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Mantém o formato de cinema sem sobrar fundo preto */
+    display: block; /* Remove espaços vazios na base do vídeo */
+}
+
+
+/* Container dos botões */
+.video-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Espaço entre os botões */
+    margin: 25px 0;
+}
+
+/* Estilo Base para todos os botões */
+.video-button button {
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Botões Anterior e Próximo (Mais discretos) */
+.btn-step {
+    background-color: #ff5722;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.btn-step:hover {
+    background-color: #444;
+    transform: translateY(-2px);
+    color: #ff5722; /* Texto fica laranja no hover */
+}
+
+/* Botão de Lista Central (Destaque Principal) */
+.btn-list {
+    background-color: #ff5722;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.btn-list:hover {
+    background-color: #444;
+    transform: translateY(-2px);
+    color: #ff5722; /* Texto fica laranja no hover */
+}
+
+/* Ajuste para o ícone do Bootstrap dentro do botão */
+.bi-list {
+    justify-content: left;
+}
+
+.video-description h2 {
+    color: white;
+}
+
+.video-description h4 {
+    color: grey;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* MOBILE */ 
+
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column; /* Empilha logo e navegação */
+        gap: 15px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap; /* Permite que os links quebrem a linha */
+        justify-content: center;
+        gap: 10px;
+        font-size: 10px;
+    }
+
+    .search {
+        width: 100%; /* Busca ocupa a largura toda no celular */
+        margin-left: 10%;
+
+    }
+}
+
+
+    /* 1. Estilo padrão (Celular) */
+.episodes-grid, .episodes-grid-temporada {
+    display: grid;
+    /* No celular: 2 colunas fixas para não ficar zoneado */
+    grid-template-columns: repeat(1, 1fr); 
+    gap: 15px;
+    padding: 10px;
+}
+
+/* 2. Estilo para Telas Maiores (Desktop) */
+@media (min-width: 769px) {
+    .episodes-grid, .episodes-grid-temporada {
+        /* No desktop: 5 colunas fixas (ou quantas você preferir) */
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 20px;
+        padding: 0;
+    }
+}
+
+
+
+/* Anime Sinopse */
+
+
+
+.episodes-sinopse {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    padding-left: 5%; padding-right: 5%;
+    gap: 1%;
+
+}
+
+
+.anime-sinopse-card {
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    padding-block-end: 5%;
+    padding-left: 20%;
+    padding-right: 10%;
+}
+
+
+.anime-sinopse-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.anime-sinopse-info-genero{
+    display: flex;
+    gap: 10px;
+}
+
+.anime-sinopse-info-genero{
+    display:flex;
+    gap:8px;
+    margin-top:15px;
+}
+
+.genero{
+    background:#1a1a1a;
+    color:#d1d1d1;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:14px;
+    border:1px solid #2a2a2a;
+}   
+
+.anime-sinopse img{
+    width: 400px;
+    height: 520px;
+    object-fit: cover;
+    padding-right: 5%;
+    border-radius: 10px;
+}
+
+.anime-sinopse-info h1{
+    color: white;
+}
+
+.anime-sinopse-info h2{
+    color: #ddd;            /* Branco acinzentado cansa menos a vista */
+    font-weight: 400;       /* Texto longo fica melhor se não for negrito */
+    line-height: 1.8;       /* Aumenta o espaço entre as linhas */
+    max-width: 920px;       /* Evita que o texto fique largo demais */
+    margin: 0 auto 10px;    /* Centraliza o bloco e dá espaço entre as seções */
+    font-size: 1.1rem;
+    text-align: left;
+    word-spacing: 1px;      /* Pequeno espaço entre as palavras */
+}
+
+
+.episode-card-sinopse-title-anime {
+    color: white !important;
+    font-size: 20px !important;
+}
+
+.episode-card-sinopse{
+    background:#111;
+    border-radius:4px;
+    overflow:hidden;
+    padding-bottom:30px;
+    text-align:left;
+}
+
+.episode-card-sinopse img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    display:block;
+}
+
+
+.episode-card-sinopse p{
+    padding: 4px;
+    margin:0px;
+    font-weight: normal;
+    color: #FFFFFF80;
+    font-size: 14px;
+}
