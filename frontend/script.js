@@ -5,16 +5,16 @@
 // Função goToEpisode
 function goToEpisode(animeId, episodeId){
 
-    window.location.href = `anime-ep.html?anime=${animeId}&ep=${episodeId}`;
+    window.location.href = `anime-ep.html?anime-id=${animeId}&ep-id=${episodeId}`;
 
 }
 
 
 const params = new URLSearchParams(window.location.search);
 
-const animeId = params.get("anime");
+const animeId = params.get("anime-id");
 
-const episodeId = params.get("ep");
+const episodeId = params.get("ep-id");
 
 
 // Função goToAnime 
@@ -114,7 +114,7 @@ fetch('/episodes')
 
                 <div class="video-container">
                     <iframe 
-                        src="${episodioAtual.url_video}" 
+                        src="https://www.youtube.com/embed/${episodioAtual.url_video}" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
