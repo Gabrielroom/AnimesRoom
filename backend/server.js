@@ -10,7 +10,7 @@ app.use(express.static("../frontend"));
 
 // Rota para pegar episódios
 app.get('/episodes', (req, res) => {
-        db.query('SELECT * FROM episodes', (err, results) => {
+        db.query("SELECT * FROM episodes WHERE tipo = 'semanal'", (err, results) => {
         if (err) {
             return res.status(500).json(err);
         }
@@ -20,13 +20,18 @@ app.get('/episodes', (req, res) => {
 
 // Rota para pegar episódios da temporada
 app.get('/episodes_temporada', (req, res) => {
-    db.query('SELECT * FROM episodes_temporada', (err, results) => {
+    db.query("SELECT * FROM episodes WHERE tipo = 'temporada'", (err, results) => {
         if (err) {
             return res.status(500).json(err);
         }
         res.json(results);
     });
 });
+
+
+
+
+
 
 console.log(DBD.DB_USER);
 

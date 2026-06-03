@@ -118,6 +118,9 @@ fetch('/episodes')
 
 
 
+    
+
+
 // Anime-Ep > Episodes
 fetch('/episodes')
     .then(res => res.json())
@@ -170,7 +173,7 @@ fetch('/episodes_temporada')
     .then(res => res.json())
     .then(data => {
 
-            const container = document.querySelector('.anime-ep');
+            const container = document.querySelector('.anime-ep-temporada');
             const episodioAtual = data.find(ep => ep.id == episodeId);
             const dataFormatada = new Date(episodioAtual.release_date).toLocaleDateString('pt-BR');
 
