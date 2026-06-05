@@ -9,12 +9,21 @@ const animeId = params.get("anime-id");
 
 const episodeId = params.get("ep-id");
 
+const epAnime = params.get("ep-anime");
+
+
 
 
 // Função goToEpisode
-function goToEpisode(animeId, episodeId){
+function goToEpisode(animeId, episodeId, epAnime){
 
-    window.location.href = `anime-ep.html?anime-id=${animeId}&ep-id=${episodeId}`;
+    window.location.href = `anime-ep.html?anime-id=${animeId}&ep-id=${episodeId}&ep-anime=${epAnime}`;
+
+}
+
+function goToNextEpisode(animeId, episodeId, epAnime){
+
+    window.location.href = `anime-ep.html?anime-id=${animeId}&ep-id=${episodeId}&ep-anime=${epAnime}`;
 
 }
 
@@ -48,7 +57,7 @@ fetch('/episodes')
             const dataFormatada = new Date(ep.release_date).toLocaleDateString('pt-BR');
 
             container.innerHTML += `
-                <div class="episode-card" onclick="goToEpisode(${ep.anime_id}, ${ep.id})">
+                <div class="episode-card" onclick="goToEpisode(${ep.anime_id}, ${ep.id}, ${ep.episode})">
                     <img src="/resources/images/${ep.image}">
                     <p class="episode-card-title-anime">${ep.anime}</p>
                     <p>Lançamento ${dataFormatada}</p>
@@ -73,11 +82,11 @@ fetch('/episodes_temporada')
             const dataFormatada = new Date(ep.release_date).toLocaleDateString('pt-BR');
 
             container.innerHTML += `
-                <div class="episode-card" onclick="goToEpisode(${ep.anime_id}, ${ep.id})">
+                <div class="episode-card" onclick="goToEpisode(${ep.anime_id}, ${ep.id}, ${ep.episode})">
                     <img src="/resources/images/${ep.image}">
                     <p class="episode-card-title-anime">${ep.anime}</p>
                     <p>Lançamento ${dataFormatada}</p>
-                    <p>${ep.episode}</p>
+                    <p class="episode-card-p-ep">Episódio ${ep.episode}</p>
                 </div>
             `;
         });
@@ -150,7 +159,11 @@ fetch('/episodes')
 
                         <button class="btn-list"><i class="bi bi-list">Todos Episódios</i></button>
                         
-                        <button class="btn-step">Próximo</button>
+                        <button class="btn-step" onclick="goToNextEpisode(${episodioAtual.anime_id}, ${episodioAtual.id}, ${episodioAtual.episode})">
+                        
+                        Próximo
+                        
+                        </button>
                 </div>
 
                 <div class="video-description">
@@ -173,7 +186,7 @@ fetch('/episodes_temporada')
     .then(res => res.json())
     .then(data => {
 
-            const container = document.querySelector('.anime-ep-temporada');
+            const container = document.querySelector('.anime-ep');
             const episodioAtual = data.find(ep => ep.id == episodeId);
             const dataFormatada = new Date(episodioAtual.release_date).toLocaleDateString('pt-BR');
 
