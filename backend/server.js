@@ -3,6 +3,10 @@ import db from './db.js'
 import cors from 'cors'
 import 'dotenv/config';
 
+
+
+
+
 const DBD = process.env;
 const app = express();
 app.use(cors());
@@ -26,6 +30,27 @@ app.get('/episodes_temporada', (req, res) => {
         }
         res.json(results);
     });
+});
+
+
+// Rota para pegar apenas um episódio
+app.get('/episodes/:id', (req, res) => {
+
+    const id = req.params.id;
+
+    db.query(
+        "SELECT * FROM episodes WHERE id = ?",
+        [id],
+        (err, results) => {
+
+            if (err) {
+                return res.status(500).json(err);
+            }
+
+            res.json(results[0]);
+        }
+    );
+
 });
 
 
