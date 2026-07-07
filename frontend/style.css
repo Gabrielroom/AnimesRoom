@@ -560,100 +560,112 @@ nav a {
 /* Anime Sinopse */
 
 
-
-.episodes-sinopse {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    padding-left: 5%; padding-right: 5%;
-    gap: 1%;
-
+.anime-sinopse{
+    width: 100%;
+    padding: 50px 5%;
+    box-sizing: border-box;
 }
 
+/* Card superior */
 
-.anime-sinopse-card {
+.anime-sinopse-card{
     display: flex;
-    justify-content: center;
-    padding-top: 5%;
-    padding-block-end: 5%;
-    padding-left: 20%;
-    padding-right: 10%;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 60px;
+    padding-left: 25%;
+    padding-right: 10%
+
 }
 
+.anime-sinopse-card img{
+    width: 360px;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+
+/* Informações */
 
 .anime-sinopse-info{
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
-.anime-sinopse-info-genero{
-    display: flex;
-    gap: 10px;
+.anime-sinopse-info h1{
+    color: white;
+    font-size: 42px;
+    margin-bottom: 20px;
 }
+
+.anime-sinopse-info h2{
+    color: #d5d5d5;
+    font-size: 18px;
+    line-height: 1.8;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+/* Gêneros */
 
 .anime-sinopse-info-genero{
     display:flex;
-    gap:8px;
-    margin-top:15px;
+    gap:10px;
+    flex-wrap: wrap;
 }
 
 .genero{
     background:#1a1a1a;
     color:#d1d1d1;
-    padding:6px 12px;
-    border-radius:20px;
+    padding:7px 15px;
+    border-radius:30px;
+    border:1px solid #333;
     font-size:14px;
-    border:1px solid #2a2a2a;
-}   
-
-.anime-sinopse img{
-    width: 400px;
-    height: 520px;
-    object-fit: cover;
-    padding-right: 5%;
-    border-radius: 10px;
 }
 
-.anime-sinopse-info h1{
-    color: white;
+/* ========================= */
+/* Grid Episódios */
+/* ========================= */
+
+.episodes-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:25px;
 }
 
-.anime-sinopse-info h2{
-    color: #ddd;            /* Branco acinzentado cansa menos a vista */
-    font-weight: 400;       /* Texto longo fica melhor se não for negrito */
-    line-height: 1.8;       /* Aumenta o espaço entre as linhas */
-    max-width: 920px;       /* Evita que o texto fique largo demais */
-    margin: 0 auto 10px;    /* Centraliza o bloco e dá espaço entre as seções */
-    font-size: 1.1rem;
-    text-align: left;
-    word-spacing: 1px;      /* Pequeno espaço entre as palavras */
-}
-
-
-.episode-card-sinopse-title-anime {
-    color: white !important;
-    font-size: 20px !important;
-}
+/* Card */
 
 .episode-card-sinopse{
     background:#111;
-    border-radius:4px;
+    border-radius:12px;
     overflow:hidden;
-    padding-bottom:30px;
-    text-align:left;
+    transition:.25s;
+    cursor:pointer;
+}
+
+.episode-card-sinopse:hover{
+    transform:translateY(-8px);
 }
 
 .episode-card-sinopse img{
     width:100%;
-    height:180px;
+    height:190px;
     object-fit:cover;
-    display:block;
 }
 
+.episode-card-sinopse-title-anime{
+    color:#fff !important;
+    font-size:20px !important;
+    font-weight:bold;
+    padding:15px 15px 5px;
+}
 
 .episode-card-sinopse p{
-    padding: 4px;
-    margin:0px;
-    font-weight: normal;
-    color: #FFFFFF80;
-    font-size: 14px;
+    color:#bcbcbc;
+    padding:0 15px 12px;
+    margin:0;
+    font-size:14px;
 }
